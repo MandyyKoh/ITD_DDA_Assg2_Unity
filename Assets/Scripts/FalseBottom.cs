@@ -21,6 +21,7 @@ public class FalseBottom : MonoBehaviour
         falseBottom.SetActive(false);
         iFalseBottom.SetActive(true);
         chalk.SetActive(false);
+        Stopwatch.instance.StopStopwatch("drawer");
     }
 
 

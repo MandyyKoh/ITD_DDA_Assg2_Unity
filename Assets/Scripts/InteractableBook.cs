@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.XR.Interaction.Toolkit;
 public class InteractableBook : MonoBehaviour
 {
     //Mandy helped me with the stuff cuz i had issues
@@ -61,5 +61,6 @@ public class InteractableBook : MonoBehaviour
     public void MoveShelf()
     {
         animator.SetBool("isUnlocked", true);
+        Stopwatch.instance.StopStopwatch("bookshelf");
     }
 }
