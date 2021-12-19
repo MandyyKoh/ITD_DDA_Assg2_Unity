@@ -52,6 +52,7 @@ public class LockManager : MonoBehaviour
         Painting1_Movement.SetBool("isPlaced", true);
         //Painting1_interact1.SetActive(false);
         //Painting1_interact2.SetActive(true);
+        Stopwatch.instance.StopStopwatch("painting");
     }
 
     public void Painting2()

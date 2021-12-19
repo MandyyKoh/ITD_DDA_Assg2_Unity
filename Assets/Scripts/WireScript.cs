@@ -18,6 +18,7 @@ public class WireScript : MonoBehaviour
         if (connectedWires >= 4) 
         {
             indicatorLight.enabled = true;
+            Stopwatch.instance.StopStopwatch("electrical");
         }
     }
 }
