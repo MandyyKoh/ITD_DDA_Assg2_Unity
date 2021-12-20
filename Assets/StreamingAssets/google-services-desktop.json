@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "953793489065",
+    "firebase_url": "https://itd-dda-assg2-database-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "itd-dda-assg2-database",
+    "storage_bucket": "itd-dda-assg2-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953793489065:android:9fe557731e645403fe61b8",
+        "android_client_info": {
+          "package_name": "com.nanastudio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953793489065-se2maedlqtdi90ci2hlg0qmii948v33n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcBoJF5pCHjRgPSViRFBKTsYRzkwFSva4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953793489065-se2maedlqtdi90ci2hlg0qmii948v33n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953793489065:android:bc158dee2b702d2ffe61b8",
+        "android_client_info": {
+          "package_name": "com.nanastudios.ispy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953793489065-se2maedlqtdi90ci2hlg0qmii948v33n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcBoJF5pCHjRgPSViRFBKTsYRzkwFSva4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953793489065-se2maedlqtdi90ci2hlg0qmii948v33n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
