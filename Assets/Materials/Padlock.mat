@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PaperClip
+  m_Name: Padlock
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 61124c45014319449b09bd3c625df900, type: 3}
+        m_Texture: {fileID: 2800000, guid: fac0f3e77b09bc64aaec29c69dc637f9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,19 +40,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b6100a742c9fffd42ba8573b61fe7145, type: 3}
+        m_Texture: {fileID: 2800000, guid: 332b1bc58a84f7c439db822e48e81103, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: f30108f07d0903b4ba991e72279c1edf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 99394202bba2c3e4287efe04c7bd4244, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: d00868a14637fcc44836361f1a1be7de, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3c6374c64bc1bcf4bbad02f29d195c0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 3f4c0d760ca920847bcf876243dab7c8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3643729202ce3d447ad71916016bcf91, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
