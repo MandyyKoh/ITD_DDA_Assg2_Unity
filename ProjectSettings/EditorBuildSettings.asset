@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameLevel.unity
+    guid: ff60ad9b360fb2a4e8a7eed13755318a
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: efe5460e47537a240a93f1c8cccfe35c, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9cc0ec98a30cb2b45a2e51972852481e, type: 2}
