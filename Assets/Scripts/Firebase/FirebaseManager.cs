@@ -92,8 +92,8 @@ public class FirebaseManager : MonoBehaviour
     {
         if (scene.name == "Login")
         {
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().ClearLoginInput();
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().ClearRegisterInput();
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().ClearLoginInput();
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().ClearRegisterInput();
         }
     }
 
@@ -140,8 +140,8 @@ public class FirebaseManager : MonoBehaviour
 
     private void OpenLoginMenu() 
     {
-        GameObject.Find("Canvas").GetComponent<LoginMenu>().loginMenu.SetActive(true);
-        GameObject.Find("Canvas").GetComponent<LoginMenu>().registerMenu.SetActive(false);
+        GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().loginMenu.SetActive(true);
+        GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().registerMenu.SetActive(false);
     }
 
     private IEnumerator Login(string email, string password) 
@@ -177,17 +177,17 @@ public class FirebaseManager : MonoBehaviour
             {
                 message = "Account does not exist";
             }
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().warningLoginText.text = message;
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningLoginText.text = message;
         }
         else 
         {
             user = LoginTask.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.Email);
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().warningLoginText.text = "";
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().confirmLoginText.text = "Logged In";
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningLoginText.text = "";
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().confirmLoginText.text = "Logged In";
 
             loggedInDisplayname = user.DisplayName;
-            SceneManager.LoadScene("MainMenu");
+            //SceneManager.LoadScene("MainMenu");
         }
     }
 
@@ -195,11 +195,11 @@ public class FirebaseManager : MonoBehaviour
     {
         if(username == "") 
         {
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().warningRegisterText.text = "Missing Username";
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningRegisterText.text = "Missing Username";
         }
         else if (password != passwordConfirmation)
         {
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().warningRegisterText.text = "Passwords do not match!";
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningRegisterText.text = "Passwords do not match!";
         }
         else 
         {
@@ -230,7 +230,7 @@ public class FirebaseManager : MonoBehaviour
                 {
                     message = "Email already in use";
                 }
-                GameObject.Find("Canvas").GetComponent<LoginMenu>().warningRegisterText.text = message;
+                GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningRegisterText.text = message;
 
             }
 
@@ -251,12 +251,12 @@ public class FirebaseManager : MonoBehaviour
                         Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
                         FirebaseException firebaseException = ProfileTask.Exception.GetBaseException() as FirebaseException;
                         AuthError errorCode = (AuthError)firebaseException.ErrorCode;
-                        GameObject.Find("Canvas").GetComponent<LoginMenu>().warningRegisterText.text = "Username set failed!";
+                        GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningRegisterText.text = "Username set failed!";
                     }
                     else 
                     {
                         OpenLoginMenu();
-                        GameObject.Find("Canvas").GetComponent<LoginMenu>().warningRegisterText.text = "";
+                        GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningRegisterText.text = "";
                     }
                 }
             }
@@ -271,18 +271,18 @@ public class FirebaseManager : MonoBehaviour
 
         if (DBTask.IsCanceled)
         {
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().warningPasswordResetText.text = ("Password reset operation was cancelled.");
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningPasswordResetText.text = ("Password reset operation was cancelled.");
         }
 
         else if (DBTask.IsFaulted)
         {
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().warningPasswordResetText.text = ("Password reset encountered an error.");
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningPasswordResetText.text = ("Password reset encountered an error.");
         }
         else
         {
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().confirmResetPasswordText.text = "Password reset email sent";
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().resetPasswordEmailInput.text = "";
-            GameObject.Find("Canvas").GetComponent<LoginMenu>().warningPasswordResetText.text = "";
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().confirmResetPasswordText.text = "Password reset email sent";
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().resetPasswordEmailInput.text = "";
+            GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().warningPasswordResetText.text = "";
         }
     }
 
