@@ -82,26 +82,31 @@ public class Stopwatch : MonoBehaviour
         {
             electricalStopWatchActive = false;
             Debug.Log(electricalCurrentTimeElapsed);
+            FirebaseManager.instance.UpdatePuzzleTime("electricalTime", electricalCurrentTimeElapsed);
         }
         else if (stopwatch == "bookshelf")
         {
             bookshelfStopWatchActive = false;
             Debug.Log(bookshelfCurrentTimeElapsed);
+            FirebaseManager.instance.UpdatePuzzleTime("bookshelfTime", bookshelfCurrentTimeElapsed);
         }
         else if (stopwatch == "puzzle")
         {
             puzzleStopWatchActive = false;
             Debug.Log(puzzleCurrentTimeElapsed);
+            FirebaseManager.instance.UpdatePuzzleTime("puzzleTime", puzzleCurrentTimeElapsed);
         }
         else if (stopwatch == "drawer")
         {
             drawerStopWatchActive = false;
             Debug.Log(drawerCurrentTimeElapsed);
+            FirebaseManager.instance.UpdatePuzzleTime("drawerTime", drawerCurrentTimeElapsed);
         }
         else if (stopwatch == "painting")
         {
             paintingStopWatchActive = false;
             Debug.Log(paintingCurrentTimeElapsed);
+            FirebaseManager.instance.UpdatePuzzleTime("paintingTime", paintingCurrentTimeElapsed);
         }
     }
 }

@@ -22,11 +22,11 @@ public class FirebaseManager : MonoBehaviour
 
 
     private int highestScore;
-    private float electricalShortestSolveTime;
-    private float bookshelfShortestSolveTime;
-    private float puzzleShortestSolveTime;
-    private float drawerShortestSolveTime;
-    private float paintingShortestSolveTime;
+    private float electricalShortestSolveTime = 999999f;
+    private float bookshelfShortestSolveTime = 999999f;
+    private float puzzleShortestSolveTime = 999999f;
+    private float drawerShortestSolveTime = 999999f;
+    private float paintingShortestSolveTime = 999999f;
 
     public static FirebaseManager instance;
     private void Awake()
@@ -135,6 +135,7 @@ public class FirebaseManager : MonoBehaviour
         if (time < puzzleTimeToCheck)
         {
             StartCoroutine(UploadPuzzleTime(puzzleName, time));
+            Debug.Log("Time Uploaded");
         }
     }
 
