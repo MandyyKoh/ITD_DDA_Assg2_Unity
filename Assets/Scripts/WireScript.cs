@@ -6,6 +6,8 @@ public class WireScript : MonoBehaviour
 {
     public int connectedWires = 0;
     public Light indicatorLight;
+
+    public Animator safeDoorAnimator;
     public void AddConnectedWire() 
     {
         connectedWires += 1;
@@ -19,6 +21,7 @@ public class WireScript : MonoBehaviour
         {
             indicatorLight.enabled = true;
             Stopwatch.instance.StopStopwatch("electrical");
+            safeDoorAnimator.SetBool("ElectricalDone", true);
         }
     }
 }

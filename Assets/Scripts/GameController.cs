@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     public void MoveLeft()
     {
         newPosition = item.transform.position;
-        newPosition.x += 0.05f;
+        newPosition.x += 0.01f;
         item.transform.position = newPosition;
     }
 
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public void MoveRight()
     {
         newPosition = item.transform.position;
-        newPosition.x -= 0.05f;
+        newPosition.x -= 0.01f;
         item.transform.position = newPosition;
     }
 
@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     public void MoveUp()
     {
         newPosition = item.transform.position;
-        newPosition.y += 0.05f;
+        newPosition.y += 0.01f;
         item.transform.position = newPosition;
     }
 
@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
     public void MoveDown()
     {
         newPosition = item.transform.position;
-        newPosition.y -= 0.05f;
+        newPosition.y -= 0.01f;
         item.transform.position = newPosition;
     }
 
