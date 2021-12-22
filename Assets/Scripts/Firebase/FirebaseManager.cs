@@ -21,12 +21,14 @@ public class FirebaseManager : MonoBehaviour
     public string loggedInDisplayname;
 
 
-    private int highestScore;
+    private int highestReportAccuracy;
     private float electricalShortestSolveTime = 999999f;
     private float bookshelfShortestSolveTime = 999999f;
     private float puzzleShortestSolveTime = 999999f;
     private float drawerShortestSolveTime = 999999f;
     private float paintingShortestSolveTime = 999999f;
+
+    public GameObject loginMenu;
 
     public static FirebaseManager instance;
     private void Awake()
@@ -55,8 +57,6 @@ public class FirebaseManager : MonoBehaviour
                 Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             }
         });
-
-        SceneManager.sceneLoaded += OnLoginLoaded;
     }
 
     private void IntializeFirebase() 
@@ -81,21 +81,14 @@ public class FirebaseManager : MonoBehaviour
         StartCoroutine(ResetPassword(emailInput));
     }
 
-
-    public void SignOutButton() 
-    {
-        auth.SignOut();
-        SceneManager.LoadScene("Login");
-    }
-
-    void OnLoginLoaded(Scene scene, LoadSceneMode mode) 
+    /*void OnLoginLoaded(Scene scene, LoadSceneMode mode) 
     {
         if (scene.name == "Login")
         {
             GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().ClearLoginInput();
             GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().ClearRegisterInput();
         }
-    }
+    }*/
 
     /*public void SaveScoreButton() 
     {
@@ -136,6 +129,15 @@ public class FirebaseManager : MonoBehaviour
         {
             StartCoroutine(UploadPuzzleTime(puzzleName, time));
             Debug.Log("Time Uploaded");
+        }
+    }
+
+    public void UpdateReportAccuracy(int reportAccuracy) 
+    {
+        StartCoroutine(CheckHighestReportAccuracy());
+        if(reportAccuracy > highestReportAccuracy) 
+        {
+            StartCoroutine(UploadReportAccuracy(reportAccuracy));
         }
     }
 
@@ -188,6 +190,7 @@ public class FirebaseManager : MonoBehaviour
             GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().confirmLoginText.text = "Logged In";
 
             loggedInDisplayname = user.DisplayName;
+            loginMenu.GetComponent<LoginMenu>().mainMenu.SetActive(true);
             //SceneManager.LoadScene("MainMenu");
         }
     }
@@ -340,8 +343,6 @@ public class FirebaseManager : MonoBehaviour
         {
             DataSnapshot snapshot = DBTask.Result;
 
-            highestScore = int.Parse(snapshot.Child("score").Value.ToString());
-
             electricalShortestSolveTime = float.Parse(snapshot.Child("electricalTime").Value.ToString());
             bookshelfShortestSolveTime = float.Parse(snapshot.Child("bookshelfTime").Value.ToString());
             puzzleShortestSolveTime = float.Parse(snapshot.Child("puzzleTime").Value.ToString());
@@ -364,6 +365,44 @@ public class FirebaseManager : MonoBehaviour
             Debug.LogWarning(message: $"failed to register task with {DBTask.Exception}");
         }
     }
+
+    private IEnumerator UploadReportAccuracy(int reportAccuracy)
+    {
+
+        var DBTask = dbReference.Child("users").Child(user.UserId).Child("reportAccuracy").SetValueAsync(reportAccuracy);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"failed to register task with {DBTask.Exception}");
+        }
+    }
+
+    private IEnumerator CheckHighestReportAccuracy()
+    {
+        var DBTask = dbReference.Child("users").Child(user.UserId).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"failed to register task with {DBTask.Exception}");
+        }
+        else if (DBTask.Result.Value == null)
+        {
+            highestReportAccuracy = 0;
+        }
+        else
+        {
+            DataSnapshot snapshot = DBTask.Result;
+
+            highestReportAccuracy = int.Parse(snapshot.Child("reportAccuracy").Value.ToString());
+
+        }
+    }
+
+
 
 
 

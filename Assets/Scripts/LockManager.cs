@@ -14,6 +14,7 @@ public class LockManager : MonoBehaviour
     public void PlayPaintingAnimation()
     {
         paintingAnimator.SetBool("isPlaced", true);
+        DoorHandle.instance.paintingSolved = true;
         Stopwatch.instance.StopStopwatch("painting");
     }
 }

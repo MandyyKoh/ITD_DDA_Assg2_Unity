@@ -20,8 +20,8 @@ MonoBehaviour:
   - BlueWire
   - GreenWire
   - YellowWire
-  - BluePiece
-  - YellowPiece
+  - 
+  - 
   - DrawerKey
   - PaperClip
   - Drawer
@@ -29,9 +29,9 @@ MonoBehaviour:
   - Book
   - TrinketBoxKey
   - Painting
-  - 
-  - 
-  - 
+  - PuzzlePiece1
+  - PuzzlePiece2
+  - PuzzlePiece3
   - 
   - 
   - 

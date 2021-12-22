@@ -21,7 +21,6 @@ public class Report : MonoBehaviour
     public float totalQuestions = 4;
 
     public TMP_Text accuracyText;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -133,5 +132,11 @@ public class Report : MonoBehaviour
         }
         float reportAccuracy = (answeredCorrectlyCount / totalQuestions) * 100;
         accuracyText.text = reportAccuracy.ToString();
+        FirebaseManager.instance.UpdateReportAccuracy(int.Parse(reportAccuracy.ToString()));
+    }
+
+    public void Quit() 
+    {
+        Application.Quit();
     }
 }

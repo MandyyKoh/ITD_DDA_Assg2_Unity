@@ -61,6 +61,7 @@ public class InteractableBook : MonoBehaviour
     public void MoveShelf()
     {
         animator.SetBool("isUnlocked", true);
+        DoorHandle.instance.bookshelfSolved = true;
         Stopwatch.instance.StopStopwatch("bookshelf");
     }
 }

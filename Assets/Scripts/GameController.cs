@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     //to store the new postition
     Vector3 newPosition;
 
+    public Animator puzzlePieceDoorAnimator;
 
     //control to move left
     public void MoveLeft()
@@ -52,6 +53,7 @@ public class GameController : MonoBehaviour
         if (collision.gameObject.name == "sensor")
         {
             puzzles.SetActive(true);
+            puzzlePieceDoorAnimator.SetBool("PuzzleSolved", true);
         }
     }
 

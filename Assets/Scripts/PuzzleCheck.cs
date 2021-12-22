@@ -15,6 +15,7 @@ public class PuzzleCheck : MonoBehaviour
     {
         if(piecesAttachedCount >= 3) 
         {
+            DoorHandle.instance.puzzleSolved = true;
             Stopwatch.instance.StopStopwatch("puzzle");
         }
     }

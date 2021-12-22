@@ -20,6 +20,7 @@ public class WireScript : MonoBehaviour
         if (connectedWires >= 4) 
         {
             indicatorLight.enabled = true;
+            DoorHandle.instance.electricalSolved = true;
             Stopwatch.instance.StopStopwatch("electrical");
             safeDoorAnimator.SetBool("ElectricalDone", true);
         }

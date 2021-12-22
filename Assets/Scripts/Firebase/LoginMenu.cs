@@ -28,6 +28,7 @@ public class LoginMenu : MonoBehaviour
     [Header("UI")]
     public GameObject loginMenu;
     public GameObject registerMenu;
+    public GameObject mainMenu;
 
     public void LoginButton() 
     {
