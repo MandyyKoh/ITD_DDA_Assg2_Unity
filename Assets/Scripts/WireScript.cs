@@ -29,6 +29,7 @@ public class WireScript : MonoBehaviour
             doorHandle.GetComponent<DoorHandle>().electricalSolved = true;
             Stopwatch.instance.StopStopwatch("electrical");
             safeDoorAnimator.SetBool("ElectricalDone", true);
+            AudioManager.instance.Play("SafeOpen");
         }
     }
 }

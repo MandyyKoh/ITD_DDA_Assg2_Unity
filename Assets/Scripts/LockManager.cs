@@ -10,6 +10,7 @@ public class LockManager : MonoBehaviour
     public GameObject doorHandle;
     public void OpenTrinketBox()
     {
+        AudioManager.instance.Play("ChestOpen");
         trinketBoxAnimator.SetBool("IsUnlocked", true);
     }
 

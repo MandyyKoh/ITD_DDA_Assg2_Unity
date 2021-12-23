@@ -54,6 +54,7 @@ public class GameController : MonoBehaviour
         {
             puzzles.SetActive(true);
             puzzlePieceDoorAnimator.SetBool("PuzzleSolved", true);
+            AudioManager.instance.Play("MetalDrawer");
         }
     }
 

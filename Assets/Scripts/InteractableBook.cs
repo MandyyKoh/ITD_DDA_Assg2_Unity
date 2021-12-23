@@ -65,5 +65,6 @@ public class InteractableBook : MonoBehaviour
         animator.SetBool("isUnlocked", true);
         doorHandle.GetComponent<DoorHandle>().bookshelfSolved = true;
         Stopwatch.instance.StopStopwatch("bookshelf");
+        AudioManager.instance.Play("BookshelfMove");
     }
 }
