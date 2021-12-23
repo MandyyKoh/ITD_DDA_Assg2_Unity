@@ -5,6 +5,8 @@ using UnityEngine;
 public class PuzzleCheck : MonoBehaviour
 {
     private int piecesAttachedCount = 0;
+
+    public GameObject doorHandle;
     public void PieceAttached() 
     {
         piecesAttachedCount += 1;
@@ -15,7 +17,7 @@ public class PuzzleCheck : MonoBehaviour
     {
         if(piecesAttachedCount >= 3) 
         {
-            DoorHandle.instance.puzzleSolved = true;
+            doorHandle.GetComponent<DoorHandle>().puzzleSolved = true;
             Stopwatch.instance.StopStopwatch("puzzle");
         }
     }

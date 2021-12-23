@@ -10,6 +10,7 @@ public class FalseBottom : MonoBehaviour
     public GameObject key;
     public GameObject lockedDrawer;
 
+    public GameObject doorHandle;
     public void UnlockDrawer()
     {
         key.SetActive(false);
@@ -21,7 +22,7 @@ public class FalseBottom : MonoBehaviour
         falseBottom.SetActive(false);
         iFalseBottom.SetActive(true);
         chalk.SetActive(false);
-        DoorHandle.instance.drawerSolved = true;
+        doorHandle.GetComponent<DoorHandle>().drawerSolved = true;
         Stopwatch.instance.StopStopwatch("drawer");
     }
 

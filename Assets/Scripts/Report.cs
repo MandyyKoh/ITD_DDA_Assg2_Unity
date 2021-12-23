@@ -9,16 +9,17 @@ public class Report : MonoBehaviour
     public GameObject[] answer1Options;
     public GameObject[] answer2Options;
     public GameObject[] answer3Options;
+    public GameObject[] answer4Options;
 
-    private int[] currentAnswerOptions = { 0, 0, 0, 0 };
+    private int[] currentAnswerOptions = { 0, 0, 0, 0, 0 };
 
     private string inputedAnswer;
 
-    public int[] correctAnswerOptions = { 2, 0, 1, 3 };
+    public int[] correctAnswerOptions = { 2, 0, 1, 3, 2 };
 
     private float answeredCorrectlyCount;
 
-    public float totalQuestions = 4;
+    public float totalQuestions = 5;
 
     public TMP_Text accuracyText;
     // Start is called before the first frame update
@@ -75,6 +76,15 @@ public class Report : MonoBehaviour
             }
             answer3Options[currentAnswerOptions[answerToChange]].SetActive(true);
         }
+
+        else if (answerToChange == 4)
+        {
+            foreach (GameObject option in answer4Options)
+            {
+                option.SetActive(false);
+            }
+            answer4Options[currentAnswerOptions[answerToChange]].SetActive(true);
+        }
     }
 
     public void DecreaseCurrentOption(int answerToChange)
@@ -118,6 +128,15 @@ public class Report : MonoBehaviour
                 option.SetActive(false);
             }
             answer3Options[currentAnswerOptions[answerToChange]].SetActive(true);
+        }
+
+        else if (answerToChange == 4)
+        {
+            foreach (GameObject option in answer4Options)
+            {
+                option.SetActive(false);
+            }
+            answer4Options[currentAnswerOptions[answerToChange]].SetActive(true);
         }
     }
 

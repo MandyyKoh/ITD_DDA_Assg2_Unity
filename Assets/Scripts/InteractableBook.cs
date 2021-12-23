@@ -26,6 +26,8 @@ public class InteractableBook : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject doorHandle;   
+
     public void LockBook1()
     {
         Book1_interact.SetActive(false);
@@ -61,7 +63,7 @@ public class InteractableBook : MonoBehaviour
     public void MoveShelf()
     {
         animator.SetBool("isUnlocked", true);
-        DoorHandle.instance.bookshelfSolved = true;
+        doorHandle.GetComponent<DoorHandle>().bookshelfSolved = true;
         Stopwatch.instance.StopStopwatch("bookshelf");
     }
 }

@@ -10,6 +10,8 @@ public class WireScript : MonoBehaviour
     public Animator safeDoorAnimator;
     public GameObject blankDocument;
     public GameObject clueDocument;
+
+    public GameObject doorHandle;
     public void AddConnectedWire() 
     {
         connectedWires += 1;
@@ -24,7 +26,7 @@ public class WireScript : MonoBehaviour
             indicatorLight.enabled = true;
             blankDocument.SetActive(false);
             clueDocument.SetActive(true);
-            DoorHandle.instance.electricalSolved = true;
+            doorHandle.GetComponent<DoorHandle>().electricalSolved = true;
             Stopwatch.instance.StopStopwatch("electrical");
             safeDoorAnimator.SetBool("ElectricalDone", true);
         }

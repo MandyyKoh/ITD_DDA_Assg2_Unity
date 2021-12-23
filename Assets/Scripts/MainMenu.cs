@@ -9,6 +9,12 @@ public class MainMenu : MonoBehaviour
 
     public GameObject barbarossaTeleportPoint;
 
+    public GameObject sealionTeleportPoint;
+
+    public GameObject barbarossaReport;
+
+    public GameObject sealionReport;
+
     public GameObject loginMenu;
 
     public GameObject applicationForm;
@@ -30,7 +36,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayButton() 
     {
-        StartCoroutine(DropApplicationForm());
+        FirebaseManager.instance.StartCheckMap();
+        StartCoroutine(TeleportPlayer());
     }
 
     public void QuitButton() 
@@ -46,11 +53,22 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    private IEnumerator DropApplicationForm() 
+    private IEnumerator TeleportPlayer() 
     {
+        string setMap = FirebaseManager.instance.currentMap;
+
         applicationForm.GetComponent<XRGrabInteractable>().enabled = false;
         yield return new WaitForSeconds(2f);
-        player.transform.position = barbarossaTeleportPoint.transform.position;
+        if(setMap == "Barbarossa") 
+        {
+            player.transform.position = barbarossaTeleportPoint.transform.position;
+            barbarossaReport.SetActive(true);
+        }
+        else if(setMap == "Sealion") 
+        {
+            player.transform.position = sealionTeleportPoint.transform.position;
+            sealionReport.SetActive(true);
+        }
         applicationForm.GetComponent<XRGrabInteractable>().enabled = true;
         applicationForm.transform.position = applicationFormResetPoint.transform.position;
 

@@ -31,6 +31,8 @@ public class FirebaseManager : MonoBehaviour
     public GameObject loginMenu;
 
     public static FirebaseManager instance;
+
+    public string currentMap = "";
     private void Awake()
     {
         //Ensures there is only one audio manager at any time
@@ -141,11 +143,18 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
+    public void StartCheckMap() 
+    {
+        StartCoroutine(CheckSetMap());
+    }
+
     private void OpenLoginMenu() 
     {
         GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().loginMenu.SetActive(true);
         GameObject.Find("ApplicationForm").GetComponent<LoginMenu>().registerMenu.SetActive(false);
     }
+
+
 
     private IEnumerator Login(string email, string password) 
     {
@@ -332,12 +341,6 @@ public class FirebaseManager : MonoBehaviour
             puzzleShortestSolveTime = 999999f;
             drawerShortestSolveTime = 999999f;
             paintingShortestSolveTime = 999999f;
-
-            /*StartCoroutine(UploadPuzzleTime("electricalTime", electricalShortestSolveTime));
-            StartCoroutine(UploadPuzzleTime("bookshelfTime", bookshelfShortestSolveTime));
-            StartCoroutine(UploadPuzzleTime("puzzleTime", puzzleShortestSolveTime));
-            StartCoroutine(UploadPuzzleTime("drawerTime", drawerShortestSolveTime));
-            StartCoroutine(UploadPuzzleTime("paintingTime", paintingShortestSolveTime));*/
         }
         else
         {
@@ -398,6 +401,29 @@ public class FirebaseManager : MonoBehaviour
             DataSnapshot snapshot = DBTask.Result;
 
             highestReportAccuracy = int.Parse(snapshot.Child("reportAccuracy").Value.ToString());
+
+        }
+    }
+
+    private IEnumerator CheckSetMap()
+    {
+        var DBTask = dbReference.Child("gameSettings").Child("currentMap").GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"failed to register task with {DBTask.Exception}");
+        }
+        else if (DBTask.Result.Value == null)
+        {
+            highestReportAccuracy = 0;
+        }
+        else
+        {
+            DataSnapshot snapshot = DBTask.Result;
+            currentMap = snapshot.Value.ToString();
+
 
         }
     }
