@@ -5546,7 +5546,7 @@ MonoBehaviour:
   - {fileID: 2068497032}
   - {fileID: 104298326}
   correctAnswerOptions: 0200000000000000010000000300000002000000
-  totalQuestions: 4
+  totalQuestions: 5
   accuracyText: {fileID: 720484904}
 --- !u!114 &102071744
 MonoBehaviour:
@@ -58591,7 +58591,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

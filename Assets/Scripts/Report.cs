@@ -36,7 +36,6 @@ public class Report : MonoBehaviour
 
     public void IncreaseCurrentOption(int answerToChange) 
     {
-        Debug.Log("Hello");
         currentAnswerOptions[answerToChange] += 1;
 
         if(currentAnswerOptions[answerToChange] > 3) 
@@ -89,7 +88,6 @@ public class Report : MonoBehaviour
 
     public void DecreaseCurrentOption(int answerToChange)
     {
-        Debug.Log("Hello");
         currentAnswerOptions[answerToChange] -= 1;
 
         if (currentAnswerOptions[answerToChange] < 0)
@@ -146,7 +144,7 @@ public class Report : MonoBehaviour
         {
             if (currentAnswerOptions[i] == correctAnswerOptions[i])
             {
-                answeredCorrectlyCount += 1;
+                answeredCorrectlyCount += 1f;
             }
         }
         float reportAccuracy = (answeredCorrectlyCount / totalQuestions) * 100;
