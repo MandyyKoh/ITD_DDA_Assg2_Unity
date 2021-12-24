@@ -21,6 +21,9 @@ public class MainMenu : MonoBehaviour
 
     public GameObject applicationFormResetPoint;
 
+    public GameObject barbarossaRoom;
+    public GameObject sealionRoom;
+
     public 
     // Start is called before the first frame update
     void Start()
@@ -63,11 +66,13 @@ public class MainMenu : MonoBehaviour
         {
             player.transform.position = barbarossaTeleportPoint.transform.position;
             barbarossaReport.SetActive(true);
+            sealionRoom.SetActive(false);
         }
         else if(setMap == "Sealion") 
         {
             player.transform.position = sealionTeleportPoint.transform.position;
             sealionReport.SetActive(true);
+            barbarossaRoom.SetActive(false);
         }
         applicationForm.GetComponent<XRGrabInteractable>().enabled = true;
         applicationForm.transform.position = applicationFormResetPoint.transform.position;
